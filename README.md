@@ -1,2 +1,2 @@
 # repo
-Scripts and content I use
+Personal scripts and content I use and need access to.
