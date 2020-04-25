@@ -32,3 +32,4 @@ done
 
 echo "\n${GREEN}Moving .zshenv to $HOME... ${NOCOLOR}"
 mv $CONFIG_DIR/.zshenv $HOME
+echo "done."
