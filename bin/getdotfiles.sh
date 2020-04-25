@@ -30,5 +30,5 @@ do
     $(curl -k $URL > $CONFIG_DIR/$NAME)
 done
 
-echo "\n{GREEN}Moving .zshenv to $HOME... ${NOCOLOR}"
+echo "\n${GREEN}Moving .zshenv to $HOME... ${NOCOLOR}"
 mv $CONFIG_DIR/.zshenv $HOME
