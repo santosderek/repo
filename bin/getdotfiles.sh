@@ -5,6 +5,7 @@ NOCOLOR="\033[0m"
 
 CONFIG_REPO_URL=https://api.github.com/repos/santosderek/repo/contents/homedir/.config
 CONFIG_DIR=/home/derek/.config
+
 if [ ! -d $CONFIG_DIR ]; then
     mkdir -p $CONFIG_DIR 
 fi
@@ -25,4 +26,5 @@ do
     $(curl -k $URL > $CONFIG_DIR/$NAME)
 done
 
-
+echo "\n{GREEN}Moving .zshenv to $HOME... ${NOCOLOR}"
+mv $CONFIG_DIR/.zshenv $HOME
