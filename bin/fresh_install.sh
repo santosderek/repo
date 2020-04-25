@@ -35,9 +35,8 @@ else
     echo "Found user 'derek'..."
 fi 
 
-# Install zsh config
-echo "Installing oh-my-zsh and configs"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install configs
+echo "Installing dotfiles...\n"
+zsh <(curl -ks https://repo.dyrenex.com/bin/getdotfiles.sh)
 
-# Install vim config
 
