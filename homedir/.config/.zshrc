@@ -14,7 +14,7 @@ alias cp='cp -v'
 
 # History
 ZHISTORYDIR=$HOME/.cache/zsh
-if [ -f $ZHISTORYDIR ]; then
+if [ ! -d $ZHISTORYDIR ]; then
     mkdir -p $HOME/$ZHISTORYDIR
 fi
 
