@@ -4,7 +4,7 @@ GREEN="\033[1;32m"
 NOCOLOR="\033[0m"
 
 CONFIG_REPO_URL=https://api.github.com/repos/santosderek/repo/contents/homedir/.config
-CONFIG_DIR=/home/derek/.config
+CONFIG_DIR=$HOME/.config
 
 if [ ! -d $CONFIG_DIR ]; then
     mkdir -p $CONFIG_DIR 
