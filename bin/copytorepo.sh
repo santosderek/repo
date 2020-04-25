@@ -1,19 +1,18 @@
 #!/bin/zsh
 
-HOME_DIR=/home/derek
+CONFIG_FILES=(.bashrc .vimrc .config/.zshrc)
 
-if [ ! -d $HOME_DIR ]; then
-    echo "Derek's Homedir not found"
+if [ ! -d $HOME ]; then
+    echo "$HOME not found"
     exit 254
 fi 
 
-CONFIG_FILES=(.bashrc .vimrc .zshrc)
 
-cd $HOME_DIR
+cd $HOME
 for FILE in $CONFIG_FILES;
 do
     if [ -f $FILE ]; then
         echo "Copying $FILE"
-        cp -v $HOME/$FILE $HOME_DIR/.repo/homedir/.config
+        cp -v $HOME/$FILE $HOME/.repo/homedir/.config
     fi 
 done
