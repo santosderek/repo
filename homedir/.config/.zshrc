@@ -13,9 +13,14 @@ alias mv='mv -v'
 alias cp='cp -v'
 
 # History
+ZHISTORYDIR=$HOME/.cache/zsh
+if [ -f $ZHISTORYDIR ]; then
+    mkdir -p $HOME/$ZHISTORYDIR
+fi
+
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=$ZHISTORYDIR/history
 
 # Basic auto/tab complete:
 autoload -U compinit
