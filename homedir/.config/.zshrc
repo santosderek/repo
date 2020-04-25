@@ -24,6 +24,11 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+
+# These two lines change tell vim to look into $MYVIMRC location
+export VIMINIT='source $MYVIMRC'
+export MYVIMRC='~/.config/.vimrc'  
+
 # Must be at the bottom
 if [ -d $HOME/.config/zsh-syntax-highlighting ]; then
     source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

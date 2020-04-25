@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-CONFIG_FILES=(.bashrc .vimrc .config/.zshrc)
+CONFIG_FILES=(.bashrc .config/.vimrc .config/.zshrc)
 
 if [ ! -d $HOME ]; then
     echo "$HOME not found"
