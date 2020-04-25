@@ -2,6 +2,9 @@
 # Install script for new Debian based machines
 # Script is run and tested in zsh
 
+echo "Updating packages\n"
+apt update
+
 echo "Installing packages...\n"
 PACKAGES=(htop vim curl git zsh)
 
