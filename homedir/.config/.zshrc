@@ -24,9 +24,12 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
-
-
+# Must be at the bottom
+if [ -d $HOME/.config/zsh-syntax-highlighting ]; then
+    source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    echo "ZSH-SYNTAX-HIGHLIGHTING not installed! Look into .zshrc for install lines...\n" 
+    # mkdir -p $HOME/.config/
+    # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zsh-syntax-highlighting
+    # source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
