@@ -16,7 +16,6 @@ fi
 
 echo "${GREEN}Getting repo contents...${NOCOLOR}"
 JSON=$(curl -k "$CONFIG_REPO_URL")
-
 COUNT=$(echo $JSON | python2 -c 'import sys,json;data=json.loads(sys.stdin.read()); print len(data)')
 
 echo "\n${GREEN}Getting files from repo...${NOCOLOR}"
@@ -31,5 +30,11 @@ do
 done
 
 echo "\n${GREEN}Moving .zshenv to $HOME... ${NOCOLOR}"
-mv $CONFIG_DIR/.zshenv $HOME
+mv -v $CONFIG_DIR/.zshenv $HOME
+
+if [ -f $CONFIG_DIR/.zshrc ]; then
+    echo "\n${GREEN}Sourcing...${NOCOLOR}"
+    source $CONFIG_DIR/.zshrc
+fi
+
 echo "${GREEN}done.${NOCOLOR}"
