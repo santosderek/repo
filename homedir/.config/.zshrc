@@ -6,6 +6,13 @@ PROMPT="%F{45}%n%f%F{38}@%f%F{42}%m%f%F{38}:%f%F{7}%~%f> "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
 
 # Alias
 alias ls='ls -l'
