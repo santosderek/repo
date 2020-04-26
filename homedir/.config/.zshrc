@@ -11,6 +11,10 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 alias ls='ls -l'
 alias mv='mv -v'
 alias cp='cp -v'
+alias editconfig='vim ~/.config/.zshrc'
+alias copytorepo='~/.repo/bin/copytorepo.sh'
+
+
 
 # History
 ZHISTORYDIR=$HOME/.cache/zsh
@@ -34,7 +38,8 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -e
+bindkey -v '^?' backward-delete-char
+
 
 
 # These two lines change tell vim to look into $MYVIMRC location
