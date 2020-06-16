@@ -52,8 +52,9 @@ export MYVIMRC='~/.config/.vimrc'
 if [ -d $HOME/.config/zsh-syntax-highlighting ]; then
     source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-    echo "ZSH-SYNTAX-HIGHLIGHTING not installed! Look into .zshrc for install lines...\n" 
+    echo "ZSH-SYNTAX-HIGHLIGHTING not installed! Installing now...\n" 
     mkdir -p $HOME/.config/
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zsh-syntax-highlighting
     source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    echo "Done\n"
 fi
