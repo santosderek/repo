@@ -13,16 +13,19 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias editconfig='vim ~/.config/.zshrc'
 alias copytorepo='~/.repo/bin/copytorepo.sh'
+alias systemlog='sudo tail -f /var/log/syslog'
+alias synergy='synergyc --name Wheatley --debug DEBUG --no-tray --enable-crypto --enable-drag-drop 192.168.78.185'
 
 # History
-ZHISTORYDIR=$HOME/.cache/zsh
+ZHISTORYDIR=.cache/zsh
 if [ ! -d $ZHISTORYDIR ]; then
     mkdir -p $HOME/$ZHISTORYDIR
+    touch $HOME/$ZHISTORYDIR/history
 fi
 
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=$ZHISTORYDIR/history
+HISTFILE=$HOME/$ZHISTORYDIR/history
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -50,7 +53,7 @@ if [ -d $HOME/.config/zsh-syntax-highlighting ]; then
     source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
     echo "ZSH-SYNTAX-HIGHLIGHTING not installed! Look into .zshrc for install lines...\n" 
-    # mkdir -p $HOME/.config/
-    # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zsh-syntax-highlighting
-    # source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    mkdir -p $HOME/.config/
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zsh-syntax-highlighting
+    source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
