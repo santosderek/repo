@@ -24,7 +24,6 @@ def list_dir(url: str):
 
 def download_folder_recursive(url: str, path: str):
     contents = list_dir(url)
-
     for item in contents:
         if item['type'] == 'dir':
             logging.info(f'Looking into folder: {item["path"]}')
@@ -39,4 +38,5 @@ def download_folder_recursive(url: str, path: str):
 if __name__ == '__main__':
     homedir_url='https://api.github.com/repos/santosderek/repo/contents/homedir/'
     home_folder_path=expanduser('~')
+    logging.info(f'Looking into folder: {home_folder_path}')
     download_folder_recursive(homedir_url, home_folder_path)
