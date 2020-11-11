@@ -5,16 +5,18 @@ NOCOLOR="\033[0m"
 
 CONFIG_DIR="~/.config"
 
-echo "\n${GREEN}Getting files from repo...${NOCOLOR}"
-curl https://raw.githubusercontent.com/santosderek/repo/master/bin/dotfiledownloader.py | bash
+echo "\n${GREEN}Getting dotfiles from repo.dyrenex.com:${NOCOLOR}"
+curl https://raw.githubusercontent.com/santosderek/repo/master/bin/dotfiledownloader.py | python
 
 
-if [ -f $CONFIG_DIR/.zshrc ] && [ $SHELL == "/usr/bin/zsh" ] then
+if [ -f $CONFIG_DIR/.zshrc ] && [ $SHELL == "/usr/bin/zsh" ] 
+then
     echo "\n${GREEN}Sourcing zshrc...${NOCOLOR}"
     source $CONFIG_DIR/.zshrc
 fi
 
-if [ -f $CONFIG_DIR/.bashrc ] && [ $SHELL == "/bin/bash" ] then
+if [ -f $CONFIG_DIR/.bashrc ] && [ $SHELL == "/bin/bash" ] 
+then
     echo "\n${GREEN}Sourcing bashrc...${NOCOLOR}"
     source $CONFIG_DIR/.bashrc
 fi

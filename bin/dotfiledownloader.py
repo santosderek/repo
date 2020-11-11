@@ -3,13 +3,16 @@ from os import makedirs
 from os.path import expanduser, join, exists
 import json
 import requests
+import logging
 
+logging.basicConfig(level=logging.INFO)
 
 def download_file(url: str, path: str):
     """Downloads a file from a given url into a given path."""
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
         with open(path, 'wb') as f:
+            logging.info(f'\tDownloading: {path}')
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
 
@@ -24,6 +27,7 @@ def download_folder_recursive(url: str, path: str):
 
     for item in contents:
         if item['type'] == 'dir':
+            logging.info(f'Looking into folder: {item["path"]}')
             new_path = join(path, item['name'])
             if not exists(new_path):
                 makedirs(new_path, 0o775)
