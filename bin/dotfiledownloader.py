@@ -38,5 +38,5 @@ def download_folder_recursive(url: str, path: str):
 
 if __name__ == '__main__':
     homedir_url='https://api.github.com/repos/santosderek/repo/contents/homedir/'
-    home_folder_path=expanduser('~/test')
+    home_folder_path=expanduser('~')
     download_folder_recursive(homedir_url, home_folder_path)
