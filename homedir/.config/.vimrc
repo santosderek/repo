@@ -1,4 +1,3 @@
-
 " Install vim-plug plugin manager 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -10,13 +9,13 @@ endif
 " Begin plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'adrian5/oceanic-next-vim'
 
 call plug#end()
 
-
-" Using Dracula
-colorscheme dracula
+let g:oceanic_italic_comments= 1
+let g:oceanic_transparent_bg = 1
+colorscheme oceanicnext
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
