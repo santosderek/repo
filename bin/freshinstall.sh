@@ -3,7 +3,7 @@
 # Script is run and tested in zsh
 
 echo "Updating packages\n"
-apt update
+sudo apt update
 
 echo "Installing packages...\n"
 PACKAGES=(htop vim curl git zsh)
@@ -40,6 +40,6 @@ fi
 
 # Install configs
 echo "Installing dotfiles...\n"
-zsh <(curl -ks https://repo.dyrenex.com/bin/getdotfiles.sh)
+curl -ks https://repo.dyrenex.com/bin/getdotfiles.sh | zsh 
 
 

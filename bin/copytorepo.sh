@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-CONFIG_FILES=(.bashrc .config/.vimrc .config/.zshrc)
+CONFIG_FILES=(.bashrc .config/.vimrc .config/.zshrc .zshenv)
 
 if [ ! -d $HOME ]; then
     echo "$HOME not found"
@@ -13,6 +13,6 @@ for FILE in $CONFIG_FILES;
 do
     if [ -f $FILE ]; then
         echo "Copying $FILE"
-        cp -v $HOME/$FILE $HOME/.repo/homedir/.config
+        cp -v $HOME/$FILE $HOME/.repo/homedir/$FILE
     fi 
 done
