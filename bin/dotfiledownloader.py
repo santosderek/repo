@@ -7,7 +7,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-def download_file(url: str, path: str):
+def download_file_iterative(url: str, path: str):
     """Downloads a file from a given url into a given path."""
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
@@ -16,10 +16,18 @@ def download_file(url: str, path: str):
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
 
+def download_file(url: str, path: str): 
+    with open(path, 'wb') as current_file: 
+        gh_file = requests.get(url)
+        current_file.write(gh_file.content)
+
 
 def list_dir(url: str):
     """Returns a json of folder contents from github api"""
-    return requests.get(url).json()
+    gh_json = requests.get(url).json() 
+    if 'message' in gh_json and 'rate limit' in gh_json['message']: 
+        raise RateLimitError("Wait an hour... You're rate limited...")
+    return gh_json
 
 
 def download_folder_recursive(url: str, path: str):
@@ -34,6 +42,9 @@ def download_folder_recursive(url: str, path: str):
 
         elif item['type'] == 'file':
             download_file(item['download_url'], join(path, item['name']))
+
+class RateLimitError(Exception): 
+    pass 
 
 if __name__ == '__main__':
     homedir_url='https://api.github.com/repos/santosderek/repo/contents/homedir/'
